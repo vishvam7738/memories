@@ -6,7 +6,7 @@ import Post from "./Post/Post"
 import useStyles from './styles'
 
 
-const Posts = (setCurrentId) => {
+const Posts = ({setCurrentId}) => {
     const posts = useSelector((state) => state.posts)
     const classes = useStyles();
 
