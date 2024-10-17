@@ -8,6 +8,14 @@ import postRoutes from './routes/posts.js'
 const app = express();
 dotenv.config()
 
+app.use(cors(
+    {
+        origin: ["https://memories.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
+
 
 // Middleware
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -25,3 +33,7 @@ mongoose.connect(process.env.CONNECTION_URL)
     .catch((error) => console.log(error.message));
 
 // No need for 'useFindAndModify' or other deprecated options
+
+app.get("/", (req, res) => {
+    res.json("Hello");
+})
