@@ -10,7 +10,7 @@ dotenv.config()
 
 app.use(cors(
     {
-        origin: ["https://memories-one-theta.vercel.app/"],
+        origin: [""],
         methods: ["POST", "GET"],
         credentials: true
     }
