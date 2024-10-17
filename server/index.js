@@ -8,13 +8,11 @@ import postRoutes from './routes/posts.js'
 const app = express();
 dotenv.config()
 
-app.use(cors(
-    {
-        origin: ["https://memories-frontend-lemon.vercel.app"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }
-));
+app.use(cors({
+    origin: ["https://memories-frontend-lemon.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],  
+    credentials: true
+}));
 
 
 // Middleware
