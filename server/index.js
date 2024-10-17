@@ -10,7 +10,7 @@ dotenv.config()
 
 app.use(cors(
     {
-        origin: [""],
+        origin: ["https://memories-frontend-lemon.vercel.app/"],
         methods: ["POST", "GET"],
         credentials: true
     }
