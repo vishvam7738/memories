@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'https://memories-one-theta.vercel.app';
+const url = 'https://memories-one-theta.vercel.app/?vercelToolbarCode=NoBBKJTJF-LOAHW';
 
 export const fetchPosts = () => axios.get(url);
 export const createPost = (newPost) => axios.post(url, newPost);
