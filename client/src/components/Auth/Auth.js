@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core'
 import { GoogleLogin } from 'react-google-login'
+import {useDispatch} from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import useStyles from './styles'
@@ -11,7 +13,8 @@ const Auth = () => {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false)
   const [isSignup, setIsSignup] = useState(false)
-
+  const dispatch=useDispatch()
+  const navigate=useNavigate()
 
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
 
@@ -30,12 +33,21 @@ const Auth = () => {
     handleShowPassword(false)
   }
 
-  const googleSuccess = (res) => {
-    console.log(res)
+  const googleSuccess = async (res) => {
+    const result=res?.profileObj
+    const token=res?.tokenId
 
+    try {
+      dispatch({type:'AUTH',data:{result,token}});
+
+      navigate("/")
+    } catch (error) {
+      console.log(error)
+    }
   }
 
-  const googleFailure = () => {
+  const googleFailure = (error) => {
+    console.log(error)
     console.log("Google sign in was unsuccessfull. Try again later")
   }
 
