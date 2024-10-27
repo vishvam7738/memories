@@ -10,7 +10,7 @@ const API = axios.create({ baseURL: 'http://localhost:5000' })
 // export const deletePost = (id) => axios.delete(`${url}/${id}`)
 // export const likePost = (id) => axios.patch(`${url}/${id}/likePost`)
 
-API.interceptors.request.use((res) => {
+API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {
         req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
     }
