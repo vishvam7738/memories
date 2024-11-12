@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'https://memories-one-theta.vercel.app' })
+const API = axios.create({ baseURL: 'https://memories-lkq2.vercel.app' })
 
 // const url = 'http://localhost:5000/posts';
 
